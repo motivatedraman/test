@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Syllabus To-Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styles for checked items */
+        /* Target the label when the checkbox sibling within the same container is checked */
+        .task-item .checkbox-label-group input[type="checkbox"]:checked + .task-label {
+            text-decoration: line-through;
+            color: #9ca3af; /* gray-400 */
+        }
+        /* Hide link input initially */
+        .link-input-group {
+            display: none;
+            margin-top: 0.5rem; /* mt-2 */
+        }
+        /* Style for showing the link input */
+        .link-input-group.show {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* gap-2 */
+        }
+        /* Style for saved link display */
+        .saved-link {
+            font-size: 0.875rem; /* text-sm */
+            color: #3b82f6; /* blue-500 */
+            word-break: break-all;
+            margin-top: 0.25rem; /* mt-1 */
+            display: inline-block; /* Make it block or inline-block for margin */
+        }
+         .saved-link:hover {
+            text-decoration: underline;
+         }
+        /* Style for the add/edit link button */
+        .link-button {
+            padding: 0.25rem 0.5rem; /* py-1 px-2 */
+            font-size: 0.75rem; /* text-xs */
+            border-radius: 0.375rem; /* rounded-md */
+            background-color: #f3f4f6; /* bg-gray-100 */
+            color: #374151; /* text-gray-700 */
+            border: 1px solid #d1d5db; /* border border-gray-300 */
+            cursor: pointer;
+            transition: background-color 0.2s;
+            white-space: nowrap; /* Prevent button text wrapping */
+        }
+        .link-button:hover {
+            background-color: #e5e7eb; /* hover:bg-gray-200 */
+        }
+        /* Style for the save button within the input group */
+        .save-link-button {
+             padding: 0.25rem 0.5rem; /* py-1 px-2 */
+            font-size: 0.75rem; /* text-xs */
+            border-radius: 0.375rem; /* rounded-md */
+            background-color: #2563eb; /* bg-blue-600 */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+         .save-link-button:hover {
+            background-color: #1d4ed8; /* hover:bg-blue-700 */
+        }
+        /* Resource section styling */
+        .resource-info {
+            margin-top: 0.25rem; /* mt-1 */
+        }
+        .resource-content a {
+            color: #3b82f6; /* blue-500 */
+            text-decoration: underline;
+        }
+        .resource-content code {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            padding: 0.1rem 0.3rem;
+            border-radius: 0.25rem; /* rounded-sm */
+            font-size: 0.8em;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 p-4 md:p-8">
+
+    <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h1 class="text-2xl md:text-3xl font-bold mb-6 text-gray-800 border-b pb-3">Data Science & ML Syllabus Tracker</h1>
+
+        <section class="mb-6 week-section" data-week="1">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Week 1: Introduction To Programming Language (Python)</h2>
+            <ul class="space-y-3 list-none p-0">
+                </ul>
+        </section>
+         <section class="mb-6 week-section" data-week="2">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Week 2: Python (Intermediate)</h2>
+            <ul class="space-y-3 list-none p-0"></ul>
+        </section>
+         <section class="mb-6 week-section" data-week="3">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Week 3: Basics To Data Science</h2>
+            <ul class="space-y-3 list-none p-0"></ul>
+        </section>
+         <section class="mb-6 week-section" data-week="4">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Week 4: Machine Learning - I</h2>
+            <ul class="space-y-3 list-none p-0"></ul>
+        </section>
+         <section class="mb-6 week-section" data-week="5">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Week 5: Machine Learning - II</h2>
+            <ul class="space-y-3 list-none p-0"></ul>
+        </section>
+         <section class="mb-6 week-section" data-week="6">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Week 6: Deep Learning - I</h2>
+            <ul class="space-y-3 list-none p-0"></ul>
+        </section>
+         <section class="mb-6 week-section" data-week="7">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Week 7: Deep Learning - II</h2>
+            <ul class="space-y-3 list-none p-0"></ul>
+        </section>
+         <section class="mb-6 week-section" data-week="8">
+            <h2 class="text-xl font-semibold mb-3 text-gray-700">Week 8: Natural Language Processing + Web Interface</h2>
+            <ul class="space-y-3 list-none p-0"></ul>
+        </section>
+
+    </div>
+
+    <script>
+        // --- Data ---
+        // Store syllabus data including resources
+        const syllabusData = {
+            1: [ // Week 1
+                { id: 'w1t1', text: 'Core Data Structures (Number, String, List, Tuples, Dictionary, Set)', resources: 'Search: <code>free python tutorial for beginners</code>, <code>python data structures tutorial</code>. Consider: <a href="https://docs.python.org/3/tutorial/" target="_blank">Official Docs</a>, <a href="https://www.w3schools.com/python/" target="_blank">W3Schools</a>' },
+                { id: 'w1t2', text: 'Advanced Operations', resources: 'Search: <code>python data structures tutorial</code>' },
+                { id: 'w1t3', text: 'Decision/Branching (If/Else)', resources: 'Search: <code>python if else tutorial</code>' },
+                { id: 'w1t4', text: 'Looping', resources: 'Search: <code>python for loop tutorial</code>, <code>python while loop tutorial</code>' },
+                { id: 'w1t5', text: 'Functions', resources: 'Search: <code>python functions tutorial</code>' },
+                { id: 'w1t6', text: 'Lambda, Map, Reduce, Filter', resources: 'Search: <code>python lambda map filter reduce tutorial</code>' },
+                { id: 'w1t7', text: 'Recursion', resources: 'Search: <code>python recursion tutorial</code>' },
+                { id: 'w1t8', text: 'Decorators', resources: 'Search: <code>python decorators tutorial</code>' }
+            ],
+            2: [ // Week 2
+                { id: 'w2t1', text: 'List/Dictionary Comprehension', resources: 'Search: <code>python list comprehension tutorial</code>' },
+                { id: 'w2t2', text: 'Exceptions/Handling', resources: 'Search: <code>python exception handling tutorial</code>' },
+                { id: 'w2t3', text: 'File Handling', resources: 'Search: <code>python file I/O tutorial</code>' },
+                { id: 'w2t4', text: 'Object Oriented Programming (OOP)', resources: 'Search: <code>python OOP tutorial</code>. Consider: <a href="https://realpython.com/" target="_blank">Real Python</a>' },
+                { id: 'w2t5', text: 'Method Overloading', resources: 'Search: <code>python method overloading</code> (Note: Python doesn\'t have traditional overloading like Java/C++)' },
+                { id: 'w2t6', text: 'Custom Packages/Modules', resources: 'Search: <code>python modules packages tutorial</code>' }
+            ],
+             3: [ // Week 3
+                { id: 'w3t1', text: 'Intro to Data Science', resources: 'General search or introductory articles.' },
+                { id: 'w3t2', text: 'NumPy', resources: 'Search: <code>numpy tutorial</code>. Consider: <a href="https://numpy.org/doc/stable/user/quickstart.html" target="_blank">NumPy Docs</a>' },
+                { id: 'w3t3', text: 'Matplotlib', resources: 'Search: <code>matplotlib tutorial</code>. Consider: <a href="https://matplotlib.org/stable/tutorials/index.html" target="_blank">Matplotlib Docs</a>' },
+                { id: 'w3t4', text: 'Matrix Operations', resources: 'Covered within NumPy tutorials.' },
+                { id: 'w3t5', text: 'Probability Distributions, Co-Variance, Correlation', resources: 'Search: <code>probability basics for data science</code>, <code>statistics for data science tutorial</code>' },
+                { id: 'w3t6', text: 'Intro to Scikit-Learn', resources: 'Search: <code>scikit-learn tutorial for beginners</code>. Consider: <a href="https://scikit-learn.org/stable/getting_started.html" target="_blank">Scikit-learn Docs</a>' },
+                { id: 'w3t7', text: 'Data Pre-Processing', resources: 'Search: <code>scikit-learn preprocessing tutorial</code>' },
+                { id: 'w3t8', text: 'Dimensionality Reduction (PCA, LDA)', resources: 'PCA: <a href="https://www.analyticsvidhya.com/blog/2016/03/pca-practical-guide-principal-component-analysis-python/" target="_blank">Analytics Vidhya Guide</a>. Search: <code>LDA tutorial python scikit-learn</code>' }
+            ],
+             4: [ // Week 4
+                { id: 'w4t1', text: 'Reinforcement Learning Intro', resources: 'Search: <code>reinforcement learning basics python</code>' },
+                { id: 'w4t2', text: 'Q-Learning', resources: 'Search: <code>Q-learning tutorial python</code>' },
+                { id: 'w4t3', text: 'Clustering (K-Means, Agglomerative)', resources: 'Search: <code>K-Means clustering python</code>, <code>agglomerative clustering python</code>. Consider: <a href="https://scikit-learn.org/stable/modules/clustering.html" target="_blank">Scikit-learn Clustering Docs</a>' },
+                { id: 'w4t4', text: 'Supervised Learning Intro', resources: 'General ML introductions.' },
+                { id: 'w4t5', text: 'Naive Bayes Classification', resources: 'Search: <code>naive bayes classifier python</code>. Consider: <a href="https://scikit-learn.org/stable/modules/naive_bayes.html" target="_blank">Scikit-learn Naive Bayes Docs</a>' }
+            ],
+            5: [ // Week 5
+                { id: 'w5t1', text: 'Linear/Polynomial Regression', resources: 'Search: <code>linear regression python scikit-learn</code>, <code>polynomial regression python</code>' },
+                { id: 'w5t2', text: 'K-Nearest Neighbors (KNN)', resources: 'Search: <code>KNN tutorial python scikit-learn</code>' },
+                { id: 'w5t3', text: 'Decision Trees', resources: 'Search: <code>decision tree python scikit-learn</code>' },
+                { id: 'w5t4', text: 'Bias vs Variance', resources: 'Search: <code>bias variance tradeoff explained</code>' },
+                { id: 'w5t5', text: 'Ensemble Learning (Random Forest, Adaptive Boost)', resources: 'Ensemble Guide: <a href="https://medium.com/data-science/ensembles-in-machine-learning-9128215629d1" target="_blank">Medium Article</a>. Search: <code>random forest python</code>, <code>adaboost python</code>' },
+                { id: 'w5t6', text: 'Feature Importance', resources: 'Search: <code>feature importance techniques python</code> (often covered with tree-based models)' }
+            ],
+             6: [ // Week 6
+                { id: 'w6t1', text: 'Logistic Regression', resources: 'Search: <code>logistic regression python scikit-learn</code>' },
+                { id: 'w6t2', text: 'Computation Graph and Gradient Descent', resources: 'Search: <code>gradient descent explained</code>, <code>computation graph deep learning</code>' },
+                { id: 'w6t3', text: 'Introduction to Artificial Neuron (Perceptron)', resources: 'Search: <code>perceptron algorithm python</code>' },
+                { id: 'w6t4', text: 'Multi-Layer Perceptron', resources: 'MLP Guide: <a href="https://www.datacamp.com/tutorial/multilayer-perceptrons-in-machine-learning" target="_blank">DataCamp Guide</a>. Search: <code>MLP python keras</code>' },
+                { id: 'w6t5', text: 'Introduction to Artificial Neural Networks', resources: 'Search: <code>introduction to neural networks</code>' },
+                { id: 'w6t6', text: 'Designing Artificial Neural Networks with Keras', resources: 'Search: <code>keras tutorial for beginners tensorflow</code>. Consider: <a href="https://www.tensorflow.org/tutorials" target="_blank">TensorFlow Tutorials</a>' },
+                { id: 'w6t7', text: 'Gradient Descent Variants', resources: 'Search: <code>gradient descent optimizers explained</code> (Adam, RMSprop, etc.)' },
+                { id: 'w6t8', text: 'Classification and Regression using Neural Networks', resources: 'Covered within Keras/TensorFlow tutorials.' }
+            ],
+             7: [ // Week 7
+                { id: 'w7t1', text: 'Introduction to Convolutional Neural Network (CNN)', resources: 'Search: <code>CNN tutorial python keras</code>' },
+                { id: 'w7t2', text: 'Object Classification with CNN', resources: 'Covered within CNN tutorials (e.g., image classification examples).' },
+                { id: 'w7t3', text: 'Standard CNN Architectures', resources: 'Search: <code>standard cnn architectures</code> (VGG, ResNet, Inception)' },
+                { id: 'w7t4', text: 'Introduction to Object Detection', resources: 'Object Detection Guide: <a href="https://dev.to/abhinowww/a-beginners-guide-to-object-detection-in-python-5ahp" target="_blank">DEV.to Guide</a>' },
+                { id: 'w7t5', text: 'The YOLO Algorithm', resources: 'Search: <code>YOLO object detection tutorial</code>' }
+            ],
+             8: [ // Week 8
+                { id: 'w8t1', text: 'Introduction to NLTK', resources: 'Search: <code>NLTK tutorial python</code>. Consider: <a href="https://www.nltk.org/book/" target="_blank">NLTK Book</a>' },
+                { id: 'w8t2', text: 'Text Pre-Processing', resources: 'Search: <code>text preprocessing techniques nlp</code> (Tokenization, Stopwords, Stemming, Lemmatization)' },
+                { id: 'w8t3', text: 'POS Tagging and Named-Entity Recognition', resources: 'POS Tagging: <a href="https://medium.com/thedeephub/nlp-text-preprocessing-parts-of-speech-pos-tags-part-4-1-6637f963e6af" target="_blank">Medium Article</a>. Search: <code>NER python nltk spacy</code>' },
+                { id: 'w8t4', text: 'Latent Semantic Analysis', resources: 'Search: <code>LSA tutorial python</code>' },
+                { id: 'w8t5', text: 'Introduction to Recurrent Neural Network', resources: 'Search: <code>RNN tutorial python keras</code>' },
+                { id: 'w8t6', text: 'Word2Vec Algorithm for Text Vectorization', resources: 'Search: <code>Word2Vec tutorial python gensim</code>' },
+                { id: 'w8t7', text: 'Natural Language Processing with LSTM', resources: 'Search: <code>LSTM tutorial python keras nlp</code>' },
+                { id: 'w8t8', text: 'Giving Web Interface to ML Application using Flask/Django', resources: 'Flask Guide: <a href="https://www.meritshot.com/introduction-to-flask-for-machine-learning/" target="_blank">Meritshot Guide</a>. Search: <code>django machine learning deployment</code>' }
+            ]
+            // Add other weeks similarly
+        };
+
+        // --- DOM Elements & Setup ---
+        const storagePrefix = 'mlSyllabusTodo_v2_'; // Changed prefix to avoid conflict with old data
+
+        // Function to create a task item element
+        function createTaskElement(task) {
+            const li = document.createElement('li');
+            li.className = 'task-item py-2 border-b border-gray-200 last:border-b-0';
+            li.dataset.taskId = task.id;
+
+            li.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <div class="checkbox-label-group flex items-center flex-grow mr-4 min-w-0"> <input type="checkbox" class="checkbox mr-3 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 flex-shrink-0">
+                        <span class="task-label text-gray-900">${task.text}</span>
+                    </div>
+                    <button class="link-button flex-shrink-0">Add Link</button>
+                </div>
+                <div class="details pl-7 mt-1 text-sm text-gray-600 space-y-1"> <div class="resource-info">
+                        <span class="font-medium">Resources:</span>
+                        <span class="resource-content">${task.resources || 'N/A'}</span> </div>
+                    <a href="#" target="_blank" class="saved-link hidden block"></a> <div class="link-input-group"> <input type="url" placeholder="Paste project link here..." class="link-input text-sm p-1 border border-gray-300 rounded-md flex-grow w-full">
+                        <button class="save-link-button">Save</button>
+                    </div>
+                </div>
+            `;
+            return li;
+        }
+
+        // Function to populate tasks for all weeks
+        function populateTasks() {
+            const weekSections = document.querySelectorAll('.week-section');
+            weekSections.forEach(section => {
+                const weekNumber = section.dataset.week;
+                const taskList = section.querySelector('ul');
+                if (syllabusData[weekNumber]) {
+                    syllabusData[weekNumber].forEach(task => {
+                        const taskElement = createTaskElement(task);
+                        taskList.appendChild(taskElement);
+                    });
+                }
+            });
+        }
+
+
+        // --- State Management (Local Storage) ---
+
+        // Function to load state from localStorage
+        function loadState() {
+            const taskItems = document.querySelectorAll('.task-item'); // Get all items after population
+            taskItems.forEach(item => {
+                const taskId = item.dataset.taskId;
+                const checkbox = item.querySelector('.checkbox');
+                 const linkInputGroup = item.querySelector('.link-input-group');
+                const linkInput = item.querySelector('.link-input');
+                const savedLinkDisplay = item.querySelector('.saved-link');
+                const linkButton = item.querySelector('.link-button');
+
+                 // Load checkbox state
+                const isChecked = localStorage.getItem(storagePrefix + taskId + '_checked') === 'true';
+                checkbox.checked = isChecked; // Directly set checked state
+
+                 // Load link state
+                const savedLink = localStorage.getItem(storagePrefix + taskId + '_link');
+                if (savedLink) {
+                    linkInput.value = savedLink; // Keep value in input for editing
+                    savedLinkDisplay.href = savedLink;
+                    // Display a shorter version if too long? For now, display full.
+                    savedLinkDisplay.textContent = savedLink;
+                    savedLinkDisplay.classList.remove('hidden');
+                    linkButton.textContent = 'Edit Link';
+                } else {
+                    savedLinkDisplay.classList.add('hidden');
+                    linkButton.textContent = 'Add Link';
+                }
+            });
+        }
+
+        // Function to save state to localStorage
+        function saveState(taskId, type, value) {
+            localStorage.setItem(storagePrefix + taskId + '_' + type, value);
+        }
+
+        // --- Event Listeners ---
+
+        function addEventListeners() {
+             const taskItems = document.querySelectorAll('.task-item'); // Get all items again
+             taskItems.forEach(item => {
+                const taskId = item.dataset.taskId;
+                const checkbox = item.querySelector('.checkbox');
+                const linkButton = item.querySelector('.link-button');
+                const linkInputGroup = item.querySelector('.link-input-group');
+                const saveLinkButton = item.querySelector('.save-link-button');
+                const linkInput = item.querySelector('.link-input');
+                const savedLinkDisplay = item.querySelector('.saved-link');
+
+                 // Checkbox change listener
+                checkbox.addEventListener('change', (e) => {
+                    saveState(taskId, 'checked', e.target.checked);
+                    // CSS handles the visual change via :checked pseudo-class
+                });
+
+                 // Add/Edit Link button listener
+                linkButton.addEventListener('click', () => {
+                    linkInputGroup.classList.toggle('show');
+                    // Focus the input when shown
+                    if (linkInputGroup.classList.contains('show')) {
+                        linkInput.focus();
+                    }
+                });
+
+                 // Save Link button listener
+                saveLinkButton.addEventListener('click', () => {
+                    const linkValue = linkInput.value.trim();
+                    if (linkValue) {
+                        // Basic validation: Check if it looks like a URL
+                         try {
+                            // Check if it's a plausible URL (starts with http/https or is relative)
+                            // More robust validation might be needed depending on requirements
+                            if (!linkValue.startsWith('http://') && !linkValue.startsWith('https://') && !linkValue.startsWith('/')) {
+                                // Assume https if no protocol is given
+                                new URL('https://' + linkValue);
+                            } else {
+                                new URL(linkValue); // Test if it's a valid URL structure
+                            }
+
+                            savedLinkDisplay.href = linkValue.startsWith('http') ? linkValue : 'https://' + linkValue; // Ensure protocol for href
+                            savedLinkDisplay.textContent = linkValue;
+                            savedLinkDisplay.classList.remove('hidden');
+                            saveState(taskId, 'link', linkValue);
+                            linkButton.textContent = 'Edit Link';
+                        } catch (_) {
+                           // Handle invalid URL
+                           alert("Please enter a valid URL (e.g., https://example.com or github.com/user/repo)");
+                           return; // Don't save or hide if invalid
+                        }
+                    } else {
+                        // If input is empty, remove the saved link
+                        savedLinkDisplay.classList.add('hidden');
+                        savedLinkDisplay.href = '#';
+                        savedLinkDisplay.textContent = '';
+                        localStorage.removeItem(storagePrefix + taskId + '_link');
+                        linkButton.textContent = 'Add Link';
+                    }
+                     linkInputGroup.classList.remove('show'); // Hide input group after saving/clearing
+                });
+            });
+        }
+
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            populateTasks(); // Create the task elements first
+            loadState();     // Load saved state for the created elements
+            addEventListeners(); // Add listeners to the created elements
+        });
+
+    </script>
+
+</body>
+</html>
